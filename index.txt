@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #codeOutput {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Code Generator</h1>
+    <button onclick="generateCode()">Generate</button>
+    <div id="codeOutput"></div>
+
+    <script>
+        function generateCode() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+
+            // To ensure no repeats, we'll shuffle the chars array and then just take the first 6
+            const shuffledChars = chars.split('').sort(() => 0.5 - Math.random());
+
+            for (let i = 0; i < 6; i++) {
+                result += shuffledChars[i];
+            }
+
+            document.getElementById('codeOutput').innerText = result;
+        }
+    </script>
+</body>
+</html>
